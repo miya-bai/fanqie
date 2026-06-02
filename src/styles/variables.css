@@ -1,0 +1,106 @@
+/**
+ * FocusFlow CSS 变量定义
+ * 定义颜色、字体、间距等设计令牌
+ */
+
+/* ==================== 浅色模式 (默认) ==================== */
+:root {
+  /* 主色 - 番茄红 */
+  --color-primary: #FF5A4F;
+  --color-primary-hover: #E84A40;
+  --color-primary-light: #FFEBE9;
+  --color-primary-dark: #FF6B61;
+
+  /* 休息色 - 专注蓝 */
+  --color-break: #4F7CFF;
+  --color-break-light: #E8F0FF;
+
+  /* 背景色 */
+  --color-bg: #F7F8FA;
+  --color-bg-card: #FFFFFF;
+  --color-bg-elevated: #FFFFFF;
+
+  /* 文字颜色 */
+  --color-text: #1A1D21;
+  --color-text-secondary: #5E6C84;
+  --color-text-muted: #97A0AF;
+
+  /* 功能色 */
+  --color-success: #30D158;
+  --color-warning: #FF9F0A;
+  --color-error: #FF453A;
+
+  /* 边框/分割线 */
+  --color-border: #E4E7EB;
+  --color-divider: #F0F2F5;
+
+  /* 阴影 */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-focus: 0 0 0 3px rgba(255, 90, 79, 0.25);
+
+  /* 圆角 */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  /* 间距 */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* 过渡 */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ==================== 深色模式 ==================== */
+:root.dark {
+  /* 主色 */
+  --color-primary: #FF6B61;
+  --color-primary-hover: #FF8A7F;
+  --color-primary-light: #2D2524;
+  --color-primary-dark: #FFADA6;
+
+  /* 休息色 */
+  --color-break: #6B9AFF;
+  --color-break-light: #1E2636;
+
+  /* 背景色 */
+  --color-bg: #111318;
+  --color-bg-card: #1C1F26;
+  --color-bg-elevated: #242830;
+
+  /* 文字颜色 */
+  --color-text: #F5F6F7;
+  --color-text-secondary: #9BA1AD;
+  --color-text-muted: #6B7280;
+
+  /* 功能色 */
+  --color-success: #34D759;
+  --color-warning: #FFB340;
+  --color-error: #FF6961;
+
+  /* 边框/分割线 */
+  --color-border: #2D3139;
+  --color-divider: #23262C;
+
+  /* 阴影 */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-focus: 0 0 0 3px rgba(255, 107, 97, 0.25);
+}
