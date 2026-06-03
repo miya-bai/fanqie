@@ -27,24 +27,24 @@ export function Button({
 }: ButtonProps) {
   // 基础样式
   const baseClasses =
-    'inline-flex items-center justify-center font-medium transition-all duration-150 rounded-lg';
+    'inline-flex items-center justify-center font-medium transition-all duration-200 rounded-xl';
 
   // 变体样式
   const variantClasses = {
     primary:
-      'bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-hover)] active:scale-[0.98]',
+      'bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-hover)] active:scale-[0.98] shadow-md hover:shadow-lg',
     secondary:
-      'bg-transparent border border-[var(--color-border)] text-[var(--color-text)] hover:bg-[var(--color-bg-card)]',
+      'bg-transparent border border-[var(--color-border)] text-[var(--color-text)] hover:bg-[var(--color-bg-card)] hover:border-[var(--color-primary)]/30',
     ghost:
-      'bg-transparent text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-elevated)]',
+      'bg-transparent text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-elevated)] hover:text-[var(--color-text)]',
     icon: 'bg-transparent hover:bg-[var(--color-bg-elevated)]',
   };
 
   // 尺寸样式
   const sizeClasses = {
-    sm: 'h-8 px-3 text-sm gap-1.5',
-    md: 'h-10 px-4 text-sm gap-2',
-    lg: 'h-12 px-6 text-base gap-2',
+    sm: 'h-9 px-4 text-sm gap-1.5',
+    md: 'h-11 px-5 text-sm gap-2',
+    lg: 'h-14 px-8 text-base gap-2.5',
   };
 
   // 图标按钮特殊样式

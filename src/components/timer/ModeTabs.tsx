@@ -15,7 +15,13 @@ const modes: TimerMode[] = ['focus', 'shortBreak', 'longBreak'];
 
 export function ModeTabs({ currentMode, onModeChange }: ModeTabsProps) {
   return (
-    <div className="flex items-center justify-center gap-1 p-1 bg-[var(--color-bg-card)] rounded-lg">
+    <div
+      className="flex items-center justify-center gap-1 p-1.5 rounded-2xl"
+      style={{
+        backgroundColor: 'var(--color-bg-card)',
+        boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.04)',
+      }}
+    >
       {modes.map((mode) => {
         const isActive = currentMode === mode;
         const color = MODE_COLORS[mode];
@@ -25,14 +31,17 @@ export function ModeTabs({ currentMode, onModeChange }: ModeTabsProps) {
             key={mode}
             onClick={() => onModeChange(mode)}
             className={`
-              px-4 py-2 text-sm font-medium rounded-md
-              transition-all duration-200
+              px-5 py-2.5 text-sm font-medium rounded-xl
+              transition-all duration-300 ease-out
               ${isActive
-                ? 'text-white shadow-sm'
-                : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text)]'
+                ? 'text-white shadow-lg'
+                : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text)] hover:bg-[var(--color-bg-elevated)]'
               }
             `}
-            style={isActive ? { backgroundColor: color } : undefined}
+            style={isActive ? {
+              backgroundColor: color,
+              boxShadow: `0 4px 12px ${color}40`,
+            } : undefined}
           >
             {MODE_LABELS[mode]}
           </button>

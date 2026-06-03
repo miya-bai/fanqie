@@ -1,51 +1,51 @@
 /**
  * FocusFlow CSS 变量定义
- * 定义颜色、字体、间距等设计令牌
+ * 自然有机风格 - 柔和、舒适、精致
  */
 
 /* ==================== 浅色模式 (默认) ==================== */
 :root {
-  /* 主色 - 番茄红 */
-  --color-primary: #FF5A4F;
-  --color-primary-hover: #E84A40;
-  --color-primary-light: #FFEBE9;
-  --color-primary-dark: #FF6B61;
+  /* 主色 - 柔和珊瑚橙 */
+  --color-primary: #E8847C;
+  --color-primary-hover: #D4736A;
+  --color-primary-light: #FDF0EF;
+  --color-primary-dark: #F2A59E;
 
-  /* 休息色 - 专注蓝 */
-  --color-break: #4F7CFF;
-  --color-break-light: #E8F0FF;
+  /* 休息色 - 舒缓薄荷绿 */
+  --color-break: #7ECFC0;
+  --color-break-light: #E8F6F3;
 
-  /* 背景色 */
-  --color-bg: #F7F8FA;
-  --color-bg-card: #FFFFFF;
-  --color-bg-elevated: #FFFFFF;
+  /* 背景色 - 温暖的米白渐变 */
+  --color-bg: linear-gradient(135deg, #FDFCFB 0%, #F5F0ED 100%);
+  --color-bg-card: rgba(255, 255, 255, 0.85);
+  --color-bg-elevated: rgba(255, 255, 255, 0.95);
 
   /* 文字颜色 */
-  --color-text: #1A1D21;
-  --color-text-secondary: #5E6C84;
-  --color-text-muted: #97A0AF;
+  --color-text: #3D3D3D;
+  --color-text-secondary: #6B6B6B;
+  --color-text-muted: #9E9E9E;
 
   /* 功能色 */
-  --color-success: #30D158;
-  --color-warning: #FF9F0A;
-  --color-error: #FF453A;
+  --color-success: #81C995;
+  --color-warning: #F5C26B;
+  --color-error: #E8837C;
 
-  /* 边框/分割线 */
-  --color-border: #E4E7EB;
-  --color-divider: #F0F2F5;
+  /* 边框/分割线 - 柔和 */
+  --color-border: rgba(0, 0, 0, 0.06);
+  --color-divider: rgba(0, 0, 0, 0.04);
 
-  /* 阴影 */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.08);
-  --shadow-focus: 0 0 0 3px rgba(255, 90, 79, 0.25);
+  /* 阴影 - 柔和扩散 */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --shadow-focus: 0 0 0 3px rgba(232, 132, 124, 0.2);
 
-  /* 圆角 */
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 20px;
-  --radius-2xl: 24px;
+  /* 圆角 - 更圆润 */
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-2xl: 36px;
   --radius-full: 9999px;
 
   /* 间距 */
@@ -60,47 +60,56 @@
   --space-12: 48px;
 
   /* 过渡 */
-  --duration-fast: 150ms;
-  --duration-normal: 250ms;
-  --duration-slow: 400ms;
+  --duration-fast: 200ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
   --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* 毛玻璃效果 */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-blur: blur(12px);
 }
 
 /* ==================== 深色模式 ==================== */
 :root.dark {
-  /* 主色 */
-  --color-primary: #FF6B61;
-  --color-primary-hover: #FF8A7F;
-  --color-primary-light: #2D2524;
-  --color-primary-dark: #FFADA6;
+  /* 主色 - 柔和珊瑚橙 */
+  --color-primary: #F2A59E;
+  --color-primary-hover: #F7B8B2;
+  --color-primary-light: rgba(232, 132, 124, 0.15);
+  --color-primary-dark: #F7CCC7;
 
-  /* 休息色 */
-  --color-break: #6B9AFF;
-  --color-break-light: #1E2636;
+  /* 休息色 - 舒缓薄荷绿 */
+  --color-break: #9ED9CF;
+  --color-break-light: rgba(126, 207, 192, 0.15);
 
-  /* 背景色 */
-  --color-bg: #111318;
-  --color-bg-card: #1C1F26;
-  --color-bg-elevated: #242830;
+  /* 背景色 - 深色渐变 */
+  --color-bg: linear-gradient(135deg, #1A1D21 0%, #141619 100%);
+  --color-bg-card: rgba(30, 33, 40, 0.85);
+  --color-bg-elevated: rgba(40, 44, 52, 0.95);
 
   /* 文字颜色 */
-  --color-text: #F5F6F7;
-  --color-text-secondary: #9BA1AD;
-  --color-text-muted: #6B7280;
+  --color-text: #ECECEC;
+  --color-text-secondary: #A8A8A8;
+  --color-text-muted: #707070;
 
   /* 功能色 */
-  --color-success: #34D759;
-  --color-warning: #FFB340;
-  --color-error: #FF6961;
+  --color-success: #9ED9A5;
+  --color-warning: #F7D48B;
+  --color-error: #F2A59E;
 
   /* 边框/分割线 */
-  --color-border: #2D3139;
-  --color-divider: #23262C;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-divider: rgba(255, 255, 255, 0.05);
 
   /* 阴影 */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
-  --shadow-focus: 0 0 0 3px rgba(255, 107, 97, 0.25);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --shadow-focus: 0 0 0 3px rgba(242, 165, 158, 0.25);
+
+  /* 毛玻璃效果 */
+  --glass-bg: rgba(30, 33, 40, 0.7);
+  --glass-blur: blur(12px);
 }

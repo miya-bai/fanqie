@@ -15,10 +15,11 @@ export function Card({ children, className = '', interactive }: CardProps) {
   return (
     <div
       className={`
-        bg-[var(--color-bg-card)]
+        glass
         rounded-[var(--radius-xl)]
         shadow-[var(--shadow-sm)]
-        ${interactive ? 'transition-shadow duration-200 hover:shadow-[var(--shadow-md)]' : ''}
+        border border-[var(--color-border)]
+        ${interactive ? 'transition-all duration-300 hover:shadow-[var(--shadow-md)] hover:translate-y-[-2px] cursor-pointer' : ''}
         ${className}
       `}
     >

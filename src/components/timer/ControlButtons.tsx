@@ -38,11 +38,14 @@ export function ControlButtons({
           <Button
             onClick={onStart}
             size="lg"
-            className="min-w-[140px]"
-            style={{ backgroundColor: modeColor }}
+            className="min-w-[160px] shadow-lg hover:shadow-xl transition-all duration-300"
+            style={{
+              backgroundColor: modeColor,
+              borderRadius: 'var(--radius-xl)',
+            }}
           >
             <Play size={20} className="mr-2" />
-            开始
+            开始专注
           </Button>
         );
 
@@ -50,14 +53,30 @@ export function ControlButtons({
         // 运行中：显示暂停 + 重置 + 跳过
         return (
           <div className="flex items-center gap-3">
-            <Button onClick={onPause} variant="secondary" size="md">
+            <Button
+              onClick={onPause}
+              variant="secondary"
+              size="md"
+              className="px-5"
+              style={{ borderRadius: 'var(--radius-lg)' }}
+            >
               <Pause size={18} className="mr-1.5" />
               暂停
             </Button>
-            <Button onClick={onReset} variant="ghost" size="md">
+            <Button
+              onClick={onReset}
+              variant="ghost"
+              size="md"
+              className="w-10 h-10 rounded-full"
+            >
               <RotateCcw size={18} />
             </Button>
-            <Button onClick={onSkip} variant="ghost" size="md">
+            <Button
+              onClick={onSkip}
+              variant="ghost"
+              size="md"
+              className="w-10 h-10 rounded-full"
+            >
               <SkipForward size={18} />
             </Button>
           </div>
@@ -70,16 +89,29 @@ export function ControlButtons({
             <Button
               onClick={onResume}
               size="lg"
-              className="min-w-[120px]"
-              style={{ backgroundColor: modeColor }}
+              className="min-w-[140px] shadow-lg hover:shadow-xl transition-all duration-300"
+              style={{
+                backgroundColor: modeColor,
+                borderRadius: 'var(--radius-xl)',
+              }}
             >
               <Play size={20} className="mr-2" />
               继续
             </Button>
-            <Button onClick={onReset} variant="ghost" size="md">
+            <Button
+              onClick={onReset}
+              variant="ghost"
+              size="md"
+              className="w-10 h-10 rounded-full"
+            >
               <Undo2 size={18} />
             </Button>
-            <Button onClick={onSkip} variant="ghost" size="md">
+            <Button
+              onClick={onSkip}
+              variant="ghost"
+              size="md"
+              className="w-10 h-10 rounded-full"
+            >
               <SkipForward size={18} />
             </Button>
           </div>

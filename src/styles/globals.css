@@ -1,5 +1,6 @@
 /**
  * FocusFlow 全局样式
+ * 自然有机风格
  */
 
 /* 引入 CSS 变量 */
@@ -21,17 +22,22 @@ html {
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 15px;
-  line-height: 1.5;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   min-height: 100vh;
-  background-color: var(--color-bg);
+  background: var(--color-bg);
   color: var(--color-text);
-  transition: background-color var(--duration-normal) var(--ease-default),
+  transition: background var(--duration-slow) var(--ease-soft),
     color var(--duration-normal) var(--ease-default);
+  /* 添加微妙的噪点纹理 */
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(232, 132, 124, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(126, 207, 192, 0.03) 0%, transparent 50%);
+  background-attachment: fixed;
 }
 
 /* ==================== 计时器数字字体 ==================== */
@@ -96,14 +102,17 @@ body {
 /* ==================== 卡片样式 ==================== */
 
 .card {
-  background-color: var(--color-bg-card);
+  background: var(--color-bg-card);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--duration-normal) var(--ease-default);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  transition: all var(--duration-normal) var(--ease-soft);
 }
 
 .card:hover {
   box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 /* ==================== 输入框样式 ==================== */
@@ -133,20 +142,22 @@ body {
 
 /* ==================== 动画 ==================== */
 
-@keyframes pulse {
+@keyframes pulse-soft {
   0%,
   100% {
     opacity: 1;
+    transform: scale(1);
   }
   50% {
-    opacity: 0.5;
+    opacity: 0.7;
+    transform: scale(1.02);
   }
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -154,10 +165,62 @@ body {
   }
 }
 
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 0.85;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
 .animate-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: pulse-soft 2.5s var(--ease-soft) infinite;
 }
 
 .animate-fadeIn {
-  animation: fadeIn var(--duration-normal) var(--ease-default);
+  animation: fadeIn var(--duration-slow) var(--ease-soft) forwards;
+}
+
+.animate-breathe {
+  animation: breathe 3s var(--ease-soft) infinite;
+}
+
+.animate-float {
+  animation: float 4s var(--ease-soft) infinite;
+}
+
+/* 渐变文字效果 */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-break) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 毛玻璃效果 */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
 }

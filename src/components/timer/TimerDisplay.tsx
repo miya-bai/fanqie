@@ -45,15 +45,34 @@ export function TimerDisplay({
     <div className="relative flex items-center justify-center" style={{
       marginTop: '24px',
       marginBottom: '24px',
-      minHeight: '240px'
+      minHeight: '260px'
     }}>
+      {/* 外圈光晕效果 */}
+      <div
+        className="absolute rounded-full transition-all duration-1000"
+        style={{
+          width: size + 40,
+          height: size + 40,
+          background: isRunning
+            ? `radial-gradient(circle, ${color}15 0%, transparent 70%)`
+            : 'transparent',
+          animation: isRunning ? 'breathe 3s ease-in-out infinite' : 'none',
+        }}
+      />
+
       {/* 圆形进度条 SVG */}
       <svg
         width={size}
         height={size}
         className="absolute transform -rotate-90"
       >
-        {/* 背景圆 */}
+        {/* 背景圆 - 使用渐变 */}
+        <defs>
+          <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor={color} stopOpacity="0.3" />
+            <stop offset="100%" stopColor={color} stopOpacity="0.8" />
+          </linearGradient>
+        </defs>
         <circle
           cx={size / 2}
           cy={size / 2}
@@ -61,6 +80,7 @@ export function TimerDisplay({
           fill="none"
           stroke="var(--color-border)"
           strokeWidth={strokeWidth}
+          opacity={0.5}
         />
         {/* 进度圆 */}
         <circle
@@ -75,7 +95,9 @@ export function TimerDisplay({
           strokeDashoffset={strokeDashoffset}
           className="transition-all duration-1000 ease-linear"
           style={{
-            filter: isRunning ? `drop-shadow(0 0 8px ${color}40)` : 'none',
+            filter: isRunning
+              ? `drop-shadow(0 0 12px ${color}60) drop-shadow(0 0 24px ${color}30)`
+              : `drop-shadow(0 0 6px ${color}30)`,
           }}
         />
       </svg>
@@ -85,31 +107,47 @@ export function TimerDisplay({
         <div
           className={`
             font-timer
-            ${isRunning ? 'animate-pulse' : ''}
+            ${isRunning ? 'animate-breathe' : ''}
           `}
-          style={{ color }}
+          style={{
+            color,
+            textShadow: isRunning ? `0 0 30px ${color}40` : 'none',
+          }}
         >
           {formatTime(timeRemaining)}
         </div>
         {/* 任务提示 - 放在圆圈内 */}
         {!task && (
-          <div className="text-center text-[var(--color-text-muted)] text-sm mt-2">
-            选择一个任务来专注
+          <div className="text-center text-[var(--color-text-muted)] text-sm mt-3 px-4">
+            选择一个任务开始专注
           </div>
         )}
         {task && (
-          <div className="flex items-center gap-2 mt-2 px-3 py-1.5 bg-[var(--color-primary-light)] rounded-lg">
-            <span className="text-sm text-[var(--color-text)] truncate max-w-[120px]">
+          <div
+            className="flex items-center gap-2 mt-3 px-4 py-2 rounded-xl border"
+            style={{
+              backgroundColor: 'var(--color-primary-light)',
+              borderColor: 'var(--color-primary)',
+              opacity: 0.8,
+            }}
+          >
+            <span className="text-sm text-[var(--color-text)] truncate max-w-[100px]">
               {task.title}
             </span>
-            <span className="text-xs text-[var(--color-primary)]">
+            <span
+              className="text-xs px-2 py-0.5 rounded-full"
+              style={{
+                backgroundColor: 'var(--color-primary)',
+                color: 'white',
+              }}
+            >
               {task.completedPomodoros}/{task.estimatedPomodoros}
             </span>
             <button
               onClick={onClearTask}
-              className="p-0.5 hover:bg-[var(--color-primary)]/10 rounded transition-colors"
+              className="p-1 rounded-lg hover:bg-[var(--color-primary)]/20 transition-all"
             >
-              <X size={12} className="text-[var(--color-primary)]" />
+              <X size={14} style={{ color: 'var(--color-primary)' }} />
             </button>
           </div>
         )}

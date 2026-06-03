@@ -271,27 +271,48 @@ export default function App() {
       <Header onSettingsClick={() => setCurrentView(currentView === 'settings' ? 'home' : 'settings')} />
       {renderView()}
       {/* 底部导航 */}
-      <nav className="flex items-center justify-around h-14 border-t border-[var(--color-border)] bg-[var(--color-bg-card)]">
+      <nav className="flex items-center justify-around h-16 border-t border-[var(--color-border)] glass">
         <button
           onClick={() => setCurrentView('home')}
-          className={`flex flex-col items-center gap-1 px-4 py-2 text-xs ${currentView === 'home' ? 'text-[var(--color-primary)]' : 'text-[var(--color-text-muted)]'}`}
+          className={`
+            flex flex-col items-center gap-1 px-6 py-2 rounded-xl text-xs
+            transition-all duration-300
+            ${currentView === 'home'
+              ? 'text-[var(--color-primary)]'
+              : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)]'
+            }
+          `}
         >
-          <span className="text-lg">⏱️</span>
-          计时
+          <span className={`text-xl transition-transform duration-300 ${currentView === 'home' ? 'scale-110' : ''}`}>⏱️</span>
+          <span className="font-medium">计时</span>
         </button>
         <button
           onClick={() => setCurrentView('stats')}
-          className={`flex flex-col items-center gap-1 px-4 py-2 text-xs ${currentView === 'stats' ? 'text-[var(--color-primary)]' : 'text-[var(--color-text-muted)]'}`}
+          className={`
+            flex flex-col items-center gap-1 px-6 py-2 rounded-xl text-xs
+            transition-all duration-300
+            ${currentView === 'stats'
+              ? 'text-[var(--color-primary)]'
+              : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)]'
+            }
+          `}
         >
-          <span className="text-lg">📊</span>
-          统计
+          <span className={`text-xl transition-transform duration-300 ${currentView === 'stats' ? 'scale-110' : ''}`}>📊</span>
+          <span className="font-medium">统计</span>
         </button>
         <button
           onClick={() => setCurrentView('settings')}
-          className={`flex flex-col items-center gap-1 px-4 py-2 text-xs ${currentView === 'settings' ? 'text-[var(--color-primary)]' : 'text-[var(--color-text-muted)]'}`}
+          className={`
+            flex flex-col items-center gap-1 px-6 py-2 rounded-xl text-xs
+            transition-all duration-300
+            ${currentView === 'settings'
+              ? 'text-[var(--color-primary)]'
+              : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)]'
+            }
+          `}
         >
-          <span className="text-lg">⚙️</span>
-          设置
+          <span className={`text-xl transition-transform duration-300 ${currentView === 'settings' ? 'scale-110' : ''}`}>⚙️</span>
+          <span className="font-medium">设置</span>
         </button>
       </nav>
     </MainLayout>
